@@ -5,10 +5,9 @@ export function mapServerData(serverData) {
       id: index,
       type: "Feature",
       isActive: obj.isActive,
-      geometry: 
-      {
+      geometry: {
         type: "Point",
-        coordinates: [obj.long, obj.lat]
+        coordinates: [obj.lat, obj.long]
       },
       properties: {
         iconCaption: obj.serialNumber
@@ -22,6 +21,6 @@ export function mapServerData(serverData) {
 
 function getObjectPreset(obj) {
   return obj.isActive
-    ? 'islands#blueCircleDotIconWithCaption'
-    : 'islands#redCircleDotIconWithCaption';
+    ? "islands#blueCircleDotIconWithCaption"
+    : "islands#redCircleDotIconWithCaption";
 }

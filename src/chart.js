@@ -1,4 +1,4 @@
-import { Chart } from 'chart.js';
+import { Chart } from "chart.js";
 
 function getColor(isActive, alpha = 1) {
   return isActive
@@ -16,32 +16,32 @@ function getLabel(el, i, data) {
 }
 
 export function createChart(container, data, isActive) {
-  const ctx = container.getContext('2d');
+  const ctx = container.getContext("2d");
 
   const borderColor = getColor(isActive);
   const backgroundColor = getColor(isActive, 0.5);
 
   const chart = new Chart(ctx, {
-    type: 'line',
+    type: "line",
     data: {
       labels: data.map(getLabel),
       datasets: [
         {
           data: data,
           borderWidth: 1,
-            borderColor: borderColor,
-              backgroundColor: backgroundColor
+          borderColor: borderColor,
+          backgroundColor: backgroundColor
         }
       ]
     },
     options: {
-        legend: { 
-            display: false
-        },
-        scales: {
-            xAxes: [{ ticks: { display: false } }],
-            yAxes: [{ ticks: { beginAtZero: true, max: 0 } }]
-        }
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{ ticks: { display: false } }],
+        yAxes: [{ ticks: { beginAtZero: true, max: 10 } }]
+      }
     }
   });
 
